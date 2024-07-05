@@ -29,10 +29,7 @@ const createPolyfillBundleURL = options => {
 		parameters.features = options.features.join(",");
 	}
 
-	const minified = options.minified ? true : false;
-	const extension = minified ? ".min.js" : ".js";
-
-	return Object.keys(parameters).length > 0 ? `${location.protocol}//${location.host}/v3/polyfill${extension}?${new URLSearchParams(parameters).toString()}` : `${location.protocol}//${location.host}/v3/polyfill${extension}`;
+	return Object.keys(parameters).length > 0 ? `${location.protocol}//${location.host}/v3/polyfill${extension}?${new URLSearchParams(parameters).toString()}` : `${location.protocol}//${location.host}/v3/polyfill.js`;
 };
 
 const updatePolyfillBundle = options => {
@@ -41,7 +38,6 @@ const updatePolyfillBundle = options => {
 };
 
 const defaultPolyfillBundleOptions = {
-	minified: true,
 	gated: false,
 	always: false,
 	rum: 0,
